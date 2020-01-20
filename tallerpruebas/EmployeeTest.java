@@ -28,5 +28,35 @@ class EmployeeTest {
 	
 	assertEquals(valueS,empleado.cs());
 }
+	
+	@Test
+	void testCsWorkerUSD() {
+		Employee emp1 = new Employee((float)400,"USD",(float)0,EmployeeType.Worker);
+		float salary = 400;
+		float valorEsp = salary + (float)386/12*2;
+		assertEquals(valorEsp,emp1.cs());
+	}
+	
+	@Test
+	void testCWorkerEURO() {
+		Employee emp2 = new Employee((float)400,"EURO",(float)0,EmployeeType.Worker);
+		float salary2 = (float)380;
+		float valorEsp2 = salary2 + (float)386/12*2;
+		assertEquals(valorEsp2,emp2.cs());
+	}
+	
+	@Test
+	void testCalculateWorkerUSD() {
+		Employee emp3 = new Employee((float)400,"USD",(float)0,EmployeeType.Worker);
+		float rmu = (float)386.0;
+		assertEquals(rmu,emp3.CalculateYearBonus());
+	}
+	
+	@Test
+	void testCalculateWorkerEURO() {
+		Employee emp4 = new Employee((float)400,"EURO",(float)0,EmployeeType.Worker);
+		float rmu = (float)386.0;
+		assertEquals(rmu,emp4.CalculateYearBonus());
+	}
 
 }
