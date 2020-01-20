@@ -73,4 +73,31 @@ public class Employee
         }
         return 0.0F;
     }
+	public float getSalary() {
+		return salary;
+	}
+	public void setSalary(float salary) {
+		this.salary = salary;
+	}
+	public String getCurrency() {
+		return currency;
+	}
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+	public float getBonusPercentage() {
+		return bonusPercentage;
+	}
+	public void setBonusPercentage(float bonusPercentage) {
+		this.bonusPercentage = bonusPercentage;
+	}
+	public EmployeeType getEmployeeType() {
+		return employeeType;
+	}
+	public void setEmployeeType(EmployeeType employeeType) {
+		this.employeeType = employeeType;
+	}
+	public float getRmu() {
+		return rmu;
+	}
 }

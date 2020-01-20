@@ -1,6 +1,9 @@
 package tallerpruebas;
 
-import static org.junit.jupiter.api.Assertions.*;
+
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 import org.junit.jupiter.api.Test;
 
@@ -59,4 +62,24 @@ class EmployeeTest {
 		assertEquals(rmu,emp4.CalculateYearBonus());
 	}
 
+	@Test
+	void testCsUSManager() {
+		Employee e= new Employee((float)400,"USD",(float)0,EmployeeType.Manager);
+		float ValueM = e.getSalary() + (e.getBonusPercentage() * 0.7F);
+		float ValorEsperado= ValueM+e.getRmu()/12*2;
+		assertEquals(ValorEsperado,e.cs());
+	}
+
+	@Test
+	void testCsEUROManager() {
+		Employee e= new Employee((float)400,"EURO",(float)0,EmployeeType.Manager);
+		float salary=(float) (e.getSalary()*0.95);
+		float ValueM = salary + (e.getBonusPercentage() * 0.7F);
+		float ValorEsperado= ValueM+e.getRmu()/12*2;
+		assertEquals(ValorEsperado,e.cs());
+	}
+	
+	
+	
+	
 }
