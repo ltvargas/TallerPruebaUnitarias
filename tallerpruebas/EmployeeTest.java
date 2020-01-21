@@ -179,31 +179,76 @@ class EmployeeTest {
 		float rmu = (float)386.0;
 		assertEquals(rmu,emp4.CalculateYearBonus());
 	}
-
+	
+	/*
+	 * Prueba de metodo cs()
+	 * Prueba para Employee de tipo manager, moneda USD y mes impar (Enero)
+	 */
 	@Test
-	void testCsUSManager() {
+	void testCsUSDManager() {
 		Employee e= new Employee((float)400,"USD",(float)0,EmployeeType.Manager);
+		LocalDate date = LocalDate.of(2020, 1, 20);
+		e.setDate(date);
 		float ValueM = e.getSalary() + (e.getBonusPercentage() * 0.7F);
 		float ValorEsperado= ValueM+e.getRmu()/12*2;
 		assertEquals(ValorEsperado,e.cs());
 	}
-
+	
+	/*
+	 * Prueba de metodo cs()
+	 * Prueba para Employee de tipo manager, moneda USD y mes par (Febrero)
+	 */
+	@Test
+	void testCsUSDManagerPar() {
+		Employee e = new Employee((float)400,"USD",(float)0,EmployeeType.Worker);
+		LocalDate date = LocalDate.of(2020, 2, 20);
+		e.setDate(date);
+		float ValueM = e.getSalary() + (e.getBonusPercentage() * 0.7F);
+		assertEquals(ValueM,e.cs());
+	}
+	/*
+	 * Prueba de metodo cs()
+	 * Prueba para Employee de tipo manager, moneda diferente a USD y mer impar (Enero);
+	 */
 	@Test
 	void testCsEUROManager() {
 		Employee e= new Employee((float)400,"EURO",(float)0,EmployeeType.Manager);
+		LocalDate date = LocalDate.of(2020, 1, 20);
+		e.setDate(date);
 		float salary=(float) (e.getSalary()*0.95);
 		float ValueM = salary + (e.getBonusPercentage() * 0.7F);
 		float ValorEsperado= ValueM+e.getRmu()/12*2;
 		assertEquals(ValorEsperado,e.cs());
 	}
 	
+	/*
+	 * Prueba de metodo cs()
+	 * Prueba para Employee de tipo manager, moneda diferente a USD y mer par (Febrero);
+	 */
+	@Test
+	void testCSEUROManagerPar() {
+		Employee e = new Employee((float)400,"EURO",(float)0,EmployeeType.Manager);
+		LocalDate date = LocalDate.of(2020, 2, 20);
+		e.setDate(date);
+		float salary=(float) (e.getSalary()*0.95);
+		float ValueM = salary + (e.getBonusPercentage() * 0.7F);
+		assertEquals(ValueM ,e.cs());
+	}
+	
+	/*
+	 * Prueba de metodo CalculateYearBonus()
+	 * Prueba para Employee de tipo manager y moneda diferente a USD
+	 */
 	@Test
 	void testCalculateManagerUSD() {
 		Employee e = new Employee((float)400,"USD",(float)0,EmployeeType.Manager);
 		float ValueEsperado = e.getSalary() + (e.getRmu() * 1.0F);
 		assertEquals(ValueEsperado,e.CalculateYearBonus());
 	}
-	
+	/*
+	 * Prueba de metodo CalculateYearBonus()
+	 * Prueba para Employee de tipo Manager y moneda diferente a USD
+	 */
 	@Test
 	void testCalculateManagerEuro() {
 		Employee e = new Employee((float)400,"EURO",(float)0,EmployeeType.Manager);
