@@ -88,7 +88,7 @@ class EmployeeTest {
 	
 	@Test
 	void testCalculateManagerEuro() {
-		Employee e = new Employee((float)400,"USD",(float)0,EmployeeType.Manager);
+		Employee e = new Employee((float)400,"EURO",(float)0,EmployeeType.Manager);
 		float salary=(float) (e.getSalary()*0.95);
 		float ValueEsperado = salary + (e.getRmu() * 1.0F);
 		assertEquals(ValueEsperado,e.CalculateYearBonus());
