@@ -9,11 +9,15 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.Test;
 
 class EmployeeTest {
-
-	//Test Sueldo Mensual Supervisor con moneda USD
+	/*
+	 * Prueba de metodo cs()
+	 * Prueba para Employee de tipo Supervisor, moneda USD y mes impar (Enero)
+	 */
 	@Test
-    public void testCsUSD_supervisor() {
+    public void testCsUSDimpar_supervisor() {
 	Employee supervisor=new Employee((float)665,"USD",(float)0.2,EmployeeType.Supervisor);
+	LocalDate date = LocalDate.of(2020, 1, 20);
+	supervisor.setDate(date);
 	float salario=(float)665;
 	float bonus=(float)0.2;
 	float valueS=(salario + ((float)bonus* 0.35F));
@@ -21,10 +25,31 @@ class EmployeeTest {
 	
 	assertEquals(valueS,supervisor.cs());
 }
-	//Test Sueldo Mensual Supervisor con moneda diferente aUSD
+	
+	/*
+	 * Prueba de metodo cs()
+	 * Prueba para Employee de tipo Supervisor, moneda USD y mes par (Febrero)
+	 */
 	@Test
-    public void  testCsother_supervisor() {
+    public void testCsUSDpar_supervisor() {
+	Employee supervisor=new Employee((float)665,"USD",(float)0.2,EmployeeType.Supervisor);
+	LocalDate date = LocalDate.of(2020, 2, 20);
+	supervisor.setDate(date);
+	float salario=(float)665;
+	float bonus=(float)0.2;
+	float valueS=(salario + ((float)bonus* 0.35F));
+	
+	assertEquals(valueS,supervisor.cs());
+}
+	/*
+	 * Prueba de metodo cs()
+	 * Prueba para Employee de tipo supervisor, moneda diferente a USD y mer impar (Enero);
+	 */
+	@Test
+    public void  testCsotherimpar_supervisor() {
 	Employee supervisor=new Employee((float)665,"EURO",(float)0.2,EmployeeType.Supervisor);
+	LocalDate date = LocalDate.of(2020, 1, 20);
+	supervisor.setDate(date);
 	float salario=(float)665;
 	salario = (float) (salario * 0.95);
 	float bonus=(float)0.2;
@@ -33,8 +58,26 @@ class EmployeeTest {
 	
 	assertEquals(valueS,supervisor.cs());
 }
+	/*
+	 * Prueba de metodo cs()
+	 * Prueba para Employee de tipo supervisor, moneda diferente a USD y mer par (febrero);
+	 */
+	@Test
+    public void  testCsotherpar_supervisor() {
+	Employee supervisor=new Employee((float)665,"EURO",(float)0.2,EmployeeType.Supervisor);
+	LocalDate date = LocalDate.of(2020, 2, 20);
+	supervisor.setDate(date);
+	float salario=(float)665;
+	salario = (float) (salario * 0.95);
+	float bonus=(float)0.2;
+	float valueS=(salario + ((float)bonus* 0.35F));
 	
-	//Test Sueldo Anual Supervisor con moneda USD
+	assertEquals(valueS,supervisor.cs());
+}
+	/*
+	 * Prueba de metodo CalculateYearBonus()
+	 * Prueba para Employee de tipo Supervisor y moneda diferente a USD
+	 */
 	@Test
 	void testYearBonusUSD_supervisor() {
 		Employee supervisor=new Employee((float)665,"EURO",(float)0.2,EmployeeType.Supervisor);
@@ -46,7 +89,10 @@ class EmployeeTest {
 		assertEquals(valueS,supervisor.CalculateYearBonus());
 	}
 	
-	//Test Sueldo Anual Supervisor con moneda diferente a USD
+	/*
+	 * Prueba de metodo CalculateYearBonus()
+	 * Prueba para Employee de tipo supervisor y moneda diferente a USD
+	 */
 	@Test
 	void testYearBonusother_supervisor() {
 		Employee supervisor=new Employee((float)665,"EURO",(float)0.2,EmployeeType.Supervisor);
