@@ -9,28 +9,53 @@ import org.junit.jupiter.api.Test;
 
 class EmployeeTest {
 
-	
+	//Test Sueldo Mensual Supervisor con moneda USD
 	@Test
-    public void testCsUSD() {
-	Employee empleado=new Employee((float)665,"USD",(float)0.2,EmployeeType.Supervisor);
+    public void testCsUSD_supervisor() {
+	Employee supervisor=new Employee((float)665,"USD",(float)0.2,EmployeeType.Supervisor);
 	float salario=(float)665;
 	float bonus=(float)0.2;
 	float valueS=(salario + ((float)bonus* 0.35F));
 	valueS=valueS + (float)386.0/12*2;
 	
-	assertEquals(valueS,empleado.cs());
+	assertEquals(valueS,supervisor.cs());
 }
+	//Test Sueldo Mensual Supervisor con moneda diferente aUSD
 	@Test
-    public void  testCsEURO() {
-	Employee empleado=new Employee((float)665,"EURO",(float)0.2,EmployeeType.Supervisor);
+    public void  testCsother_supervisor() {
+	Employee supervisor=new Employee((float)665,"EURO",(float)0.2,EmployeeType.Supervisor);
 	float salario=(float)665;
 	salario = (float) (salario * 0.95);
 	float bonus=(float)0.2;
 	float valueS=(salario + ((float)bonus* 0.35F));
 	valueS=valueS + (float)386.0/12*2;
 	
-	assertEquals(valueS,empleado.cs());
+	assertEquals(valueS,supervisor.cs());
 }
+	
+	//Test Sueldo Anual Supervisor con moneda USD
+	@Test
+	void testYearBonusUSD_supervisor() {
+		Employee supervisor=new Employee((float)665,"EURO",(float)0.2,EmployeeType.Supervisor);
+		
+		float salario=(float)665;
+		float rmu =(float) 386.0;
+		salario = (float) (salario * 0.95);
+		float valueS=salario + rmu * 0.5F;
+		assertEquals(valueS,supervisor.CalculateYearBonus());
+	}
+	
+	//Test Sueldo Anual Supervisor con moneda diferente a USD
+	@Test
+	void testYearBonusother_supervisor() {
+		Employee supervisor=new Employee((float)665,"EURO",(float)0.2,EmployeeType.Supervisor);
+		
+		float salario=(float)665;
+		float rmu =(float) 386.0;
+		salario = (float) (salario * 0.95);
+		float valueS=salario + rmu * 0.5F;
+		assertEquals(valueS,supervisor.CalculateYearBonus());
+	}
 	
 	@Test
 	void testCsWorkerUSD() {
