@@ -4,6 +4,7 @@ package tallerpruebas;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
@@ -57,29 +58,75 @@ class EmployeeTest {
 		assertEquals(valueS,supervisor.CalculateYearBonus());
 	}
 	
+	/*
+	 * Prueba de metodo cs()
+	 * Prueba para Employee de tipo Worker, moneda USD y mes impar (Enero)
+	 */
 	@Test
 	void testCsWorkerUSD() {
 		Employee emp1 = new Employee((float)400,"USD",(float)0,EmployeeType.Worker);
+		LocalDate date = LocalDate.of(2020, 1, 20);
+		emp1.setDate(date);
 		float salary = 400;
 		float valorEsp = salary + (float)386/12*2;
 		assertEquals(valorEsp,emp1.cs());
 	}
 	
+	/*
+	 * Prueba de metodo cs()
+	 * Prueba para Employee de tipo Worker, moneda USD y mes par (Febrero)
+	 */
+	@Test
+	void testCsWorkerUSDPar() {
+		Employee emp1 = new Employee((float)400,"USD",(float)0,EmployeeType.Worker);
+		LocalDate date = LocalDate.of(2020, 2, 20);
+		emp1.setDate(date);
+		float salary = 400;
+		assertEquals(salary,emp1.cs());
+	}
+	
+	/*
+	 * Prueba de metodo cs()
+	 * Prueba para Employee de tipo Worker, moneda diferente a USD y mer impar (Enero);
+	 */
 	@Test
 	void testCWorkerEURO() {
 		Employee emp2 = new Employee((float)400,"EURO",(float)0,EmployeeType.Worker);
+		LocalDate date = LocalDate.of(2020, 1, 20);
+		emp2.setDate(date);
 		float salary2 = (float)380;
 		float valorEsp2 = salary2 + (float)386/12*2;
 		assertEquals(valorEsp2,emp2.cs());
 	}
 	
+	/*
+	 * Prueba de metodo cs()
+	 * Prueba para Employee de tipo Worker, moneda diferente a USD y mer par (Febrero);
+	 */
 	@Test
-	void testCalculateWorkerUSD() {
-		Employee emp3 = new Employee((float)400,"USD",(float)0,EmployeeType.Worker);
-		float rmu = (float)386.0;
-		assertEquals(rmu,emp3.CalculateYearBonus());
+	void testCWorkerEUROPar() {
+		Employee emp2 = new Employee((float)400,"EURO",(float)0,EmployeeType.Worker);
+		LocalDate date = LocalDate.of(2020, 2, 20);
+		emp2.setDate(date);
+		float salary2 = (float)380;
+		assertEquals(salary2,emp2.cs());
 	}
 	
+	/*
+	 * Prueba de metodo CalculateYearBonus()
+	 * Prueba para Employee de tipo Worker y moneda diferente a USD
+	 */
+	@Test
+	void testCalculateWorkerUSD() {
+		Employee emp = new Employee((float)400,"USD",(float)0,EmployeeType.Worker);
+		float rmu = (float)386.0;
+		assertEquals(rmu,emp.CalculateYearBonus());
+	}
+	
+	/*
+	 * Prueba de metodo CalculateYearBonus()
+	 * Prueba para Employee de tipo Worker y moneda diferente a USD
+	 */
 	@Test
 	void testCalculateWorkerEURO() {
 		Employee emp4 = new Employee((float)400,"EURO",(float)0,EmployeeType.Worker);
