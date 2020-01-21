@@ -13,26 +13,36 @@ public class Employee
     //porcentaje de bonus
     private float bonusPercentage;    
     //variable de tipo employeeType
-    private EmployeeType employeeType;    
-
+    private EmployeeType employeeType; 
+    private LocalDate localDate;
+    
+    public void setDateActual() {
+    	//Obtiene la hora local
+    	Date date = new Date();
+        localDate = date.toInstant()
+                .atZone(ZoneId.systemDefault()).toLocalDate();
+        //Obtiene el mes en forma de entero
+        
+    }
+    
+    public void setDate(LocalDate date){
+    	this.localDate = date;
+    }
+    
     public Employee(float salary, String currency, 
         float bonusPercentage, EmployeeType employeeType){
         this.salary = salary;
         this.currency = currency;
         this.bonusPercentage = bonusPercentage;
         this.employeeType = employeeType;
+        setDateActual();
     }
     //calcula el salario dependiendo del tipo de trabajador 
     //y entrega el décimo correspondiente cada 2 meses
     public float cs() {
         float salario = 0;
-        Date date = new Date();
-        //Obtiene la hora local
-        LocalDate localDate;
-        localDate = date.toInstant()
-                .atZone(ZoneId.systemDefault()).toLocalDate();
-        //Obtiene el mes en forma de entero
         int month = localDate.getMonthValue();
+        
         // Si la moneda es USD, se considera todo el salario,
         // caso contrario se resta 5% por cambio de moneda
         if(currency == "USD"){salario = salary; }
