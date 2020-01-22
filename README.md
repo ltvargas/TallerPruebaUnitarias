@@ -8,6 +8,7 @@ Emplear herramientas informáticas en la construcción de pruebas unitarias para
 Implementar las pruebas unitarias necesarias para asegurar que el código de la clase adjunta Employee.java funciona correctamente.
 
 ## Funcionalidad
+	...
 
 ##Pruebas Unitarias identificadas 
 	Test assertEquals(valoresperado,valoraprobar);
@@ -20,13 +21,13 @@ Implementar las pruebas unitarias necesarias para asegurar que el código de la 
 -Metodo CalculateYearBonus() para cada tipo Employee con moneda diferente USD
 ``` 
 	 
-##Actividades Integrantes
+Actividades Integrantes
 ```
 #testing
 ESPINOZA MORENO SCARLET ANGELINA
-	-Todas las prubas unitarias de Employee tipo manager
+	-Todas las pruebas unitarias de Employee tipo manager
 BENITES BARCO PAULA ELIZABETH
-	-Todas las prubas unitarias de Employee tipo woker
+	-Todas las pruebas unitarias de Employee tipo woker
 VARGAS AGUIRRE LILIBETH TAYS
-	-Todas las prubas unitarias de Employee tipo supervisor
+	-Todas las pruebas unitarias de Employee tipo supervisor
 ```
