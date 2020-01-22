@@ -16,3 +16,23 @@ Lilibeth Tays Vargas Aguirre
 
 ## Funcionalidad
 
+##Pruebas Unitarias identificadas 
+	Test assertEquals(valoresperado,valoraprobar);
+	-Metodo cs() para cada tipo Employee con moneda USD en un mes impar
+	-Metodo cs() para cada tipo Employee con moneda USD en un mes impar
+	-Metodo cs() para cada tipo Employee con moneda diferente USD en un mes par
+	-Metodo cs() para cada tipo Employee con moneda diferente USD en un mes par
+	-Metodo CalculateYearBonus() para cada tipo Employee con moneda USD
+	-Metodo CalculateYearBonus() para cada tipo Employee con moneda diferente USD
+	 
+	 
+##Actividades Integrantes
+	```
+	#testing
+	ESPINOZA MORENO SCARLET ANGELINA
+		-Todas las prubas unitarias de Employee tipo manager
+	BENITES BARCO PAULA ELIZABETH
+		-Todas las prubas unitarias de Employee tipo woker
+	VARGAS AGUIRRE LILIBETH TAYS
+		-Todas las prubas unitarias de Employee tipo supervisor
+	```
